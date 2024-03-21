@@ -37,18 +37,19 @@ h1 {
 
 .current-temp-icon {
    position: relative;
-   top: -10px;
-   font-size: 80px;
+   top: -5px;
+   font-size: 60px;
 }
 
 .current-temp-value {
-    font-size: 80px;
-    font-weight: 800;
+    font-size: 70px;
+    font-weight: 600;
 }
 .current-temp-unit {
-    font-size: 26px;
+    font-size: 15px;
     position: relative;
-    top: -40px
+    top:-50;
+    right:-5px;
 }
 
 header {

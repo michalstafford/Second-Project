@@ -1,13 +1,43 @@
 /** @format */
-
 function refreshWeather(response) {
   console.log(response.data.temperature.current);
-  let temperatureElement = document.querySelector("#current-temp-value");
-  let temperature = response.data.temperature.current;
-  let cityElement = document.querySelector(".weather-app-city");
-  cityElement.innerHTML = response.data.city;
 
+  // Select elements from the document
+  let temperatureElement = document.querySelector("#current-temp-value");
+  let cityElement = document.querySelector(".weather-app-city");
+  let descriptionElement = document.querySelector(
+    "#current-weather-conditions"
+  );
+  let humidityElement = document.querySelector("#humidity");
+  let windSpeedElement = document.querySelector("#wind-speed");
+  let dateTimeElement = document.querySelector("#current-date-time");
+
+  // Extract data from the response
+  let temperature = response.data.temperature.current;
+
+  console.log(response);
+  console.log(response.data.condition.description);
+
+  // Update innerHTML for various elements
+  descriptionElement.innerHTML = response.data.condition.description;
+  cityElement.innerHTML = response.data.city;
+  humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
+  windSpeedElement.innerHTML = `${response.data.wind.speed} mph`; // corrected "mp/h" to "mph"
   temperatureElement.innerHTML = Math.round(temperature);
+
+  // Calculate and format the current date and time
+  let now = new Date();
+  let dayOfWeek = new Intl.DateTimeFormat("en-US", { weekday: "long" }).format(
+    now
+  );
+  let date = now.toLocaleDateString("en-US");
+  let time = now.toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
+  // Update the date and time display
+  dateTimeElement.innerHTML = `${dayOfWeek}, ${date} ${time}`;
 }
 
 function searchCity(city) {
