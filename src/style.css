@@ -32,24 +32,24 @@ h1 {
 }
 
 .current-temp-container {
-    margin-top: 26px;
+    margin: top 26px;;
 }
 
 .current-temp-icon {
    position: relative;
    top: -5px;
-   font-size: 60px;
+   font-size: 50px;
 }
 
 .current-temp-value {
-    font-size: 70px;
-    font-weight: 600;
+    font-size: 60px;
+    font-weight: 400;
 }
 .current-temp-unit {
     font-size: 15px;
     position: relative;
-    top:-50;
-    right:-5px;
+    top: -30px;
+    right: -5px;
 }
 
 header {
