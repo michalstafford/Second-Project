@@ -12,20 +12,21 @@ function refreshWeather(response) {
   let windSpeedElement = document.querySelector("#wind-speed");
   let dateTimeElement = document.querySelector("#current-date-time");
 
-  // Extract data from the response
   let temperature = response.data.temperature.current;
+
+  let iconElement = document.querySelector("#icon");
+
+  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="current-temp-icon">`;
 
   console.log(response);
   console.log(response.data.condition.description);
 
-  // Update innerHTML for various elements
   descriptionElement.innerHTML = response.data.condition.description;
   cityElement.innerHTML = response.data.city;
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
   windSpeedElement.innerHTML = `${response.data.wind.speed} mph`; // corrected "mp/h" to "mph"
   temperatureElement.innerHTML = Math.round(temperature);
 
-  // Calculate and format the current date and time
   let now = new Date();
   let dayOfWeek = new Intl.DateTimeFormat("en-US", { weekday: "long" }).format(
     now

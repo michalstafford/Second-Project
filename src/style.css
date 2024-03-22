@@ -29,26 +29,27 @@ h1 {
 .weather-app-container {
     display: flex;
     justify-content:space-between;
+    
 }
 
 .current-temp-container {
-    margin: top 26px;;
+    display: flex;
+    margin-left: auto;
 }
 
 .current-temp-icon {
    position: relative;
    top: -5px;
-   font-size: 50px;
+   margin-left: -80px;
 }
 
 .current-temp-value {
     font-size: 60px;
-    font-weight: 400;
+    font-weight: 200;
 }
 .current-temp-unit {
     font-size: 15px;
     position: relative;
-    top: -30px;
     right: -5px;
 }
 
