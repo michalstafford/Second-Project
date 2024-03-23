@@ -2,7 +2,7 @@
 function refreshWeather(response) {
   console.log(response.data.temperature.current);
 
-  // Select elements from the document
+
   let temperatureElement = document.querySelector("#current-temp-value");
   let cityElement = document.querySelector(".weather-app-city");
   let descriptionElement = document.querySelector(
@@ -11,12 +11,9 @@ function refreshWeather(response) {
   let humidityElement = document.querySelector("#humidity");
   let windSpeedElement = document.querySelector("#wind-speed");
   let dateTimeElement = document.querySelector("#current-date-time");
-
   let temperature = response.data.temperature.current;
-
   let iconElement = document.querySelector("#icon");
 
-  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="current-temp-icon">`;
 
   console.log(response);
   console.log(response.data.condition.description);
@@ -24,8 +21,9 @@ function refreshWeather(response) {
   descriptionElement.innerHTML = response.data.condition.description;
   cityElement.innerHTML = response.data.city;
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
-  windSpeedElement.innerHTML = `${response.data.wind.speed} mph`; // corrected "mp/h" to "mph"
+  windSpeedElement.innerHTML = `${response.data.wind.speed} mph`; //
   temperatureElement.innerHTML = Math.round(temperature);
+  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class ="current-temp-icon">`;
 
   let now = new Date();
   let dayOfWeek = new Intl.DateTimeFormat("en-US", { weekday: "long" }).format(
@@ -37,7 +35,6 @@ function refreshWeather(response) {
     minute: "2-digit",
   });
 
-  // Update the date and time display
   dateTimeElement.innerHTML = `${dayOfWeek}, ${date} ${time}`;
 }
 
